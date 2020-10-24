@@ -1,6 +1,8 @@
 import React, {FC} from 'react';
 import styled from 'styled-components';
 
+import config from '../../config';
+
 import {Close, Customers, Employees, Reports, Revenue} from '../Icons';
 
 import SidebarItem from './SidebarItem';
@@ -61,10 +63,19 @@ const Sidebar: FC<SidebarProps> = ({onCloseSidebar}) => (
       </CloseIcon>
       <Favicon src={imgFavicon} alt="MilkTea" />
     </SidebarHeader>
-    <SidebarItem label="Employees" icon={<Employees />} to="#" />
-    <SidebarItem label="Loyal customers" icon={<Customers />} active to="#" />
-    <SidebarItem label="Reports" icon={<Reports />} to="" />
-    <SidebarItem label="Revenue" icon={<Revenue />} to="#" />
+    <SidebarItem
+      label="Employees"
+      icon={<Employees />}
+      to={config.app.employees}
+    />
+    <SidebarItem
+      label="Loyal customers"
+      icon={<Customers />}
+      active
+      to={config.app.loyalCustomers}
+    />
+    <SidebarItem label="Reports" icon={<Reports />} to={config.app.reports} />
+    <SidebarItem label="Revenue" icon={<Revenue />} to={config.app.revenue} />
   </Container>
 );
 

@@ -1,11 +1,16 @@
-import React from 'react';
+import React, {FC, ReactNode} from 'react';
 import styled from 'styled-components';
+
+import {DashboardContext} from '../../contexts/DashboardContext';
 
 import useToggle from '../../hooks/useToggle';
 
 import Sidebar from '../../components/Sidebar';
 import Main from '../../components/Main';
-import PageTitle from '../../components/PageTitle';
+
+interface DashboardProps {
+  children: ReactNode;
+}
 
 const Container = styled.div<{show: boolean}>`
   position: relative;
@@ -18,20 +23,21 @@ const Container = styled.div<{show: boolean}>`
   }
 `;
 
-const Dashboard = () => {
+const Dashboard: FC<DashboardProps> = ({children}) => {
   const toggleShowSidebar = useToggle();
 
   return (
-    <Container show={toggleShowSidebar.active}>
-      <Sidebar onCloseSidebar={toggleShowSidebar.setInActive} />
-      <Main>
-        <PageTitle
-          primary="Welcome back"
-          secondary="Hi MilkTea guys,"
-          onOpenSidebar={toggleShowSidebar.setActive}
-        />
-      </Main>
-    </Container>
+    <DashboardContext.Provider
+      value={{
+        onOpenSidebar: toggleShowSidebar.setActive,
+        onCloseSidebar: toggleShowSidebar.setInActive,
+      }}
+    >
+      <Container show={toggleShowSidebar.active}>
+        <Sidebar onCloseSidebar={toggleShowSidebar.setInActive} />
+        <Main>{children}</Main>
+      </Container>
+    </DashboardContext.Provider>
   );
 };
 
