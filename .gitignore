@@ -11,6 +11,9 @@
 # production
 /build
 
+# mock API
+/server/db.json
+
 # misc
 .DS_Store
 .env.local
