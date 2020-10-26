@@ -13,8 +13,13 @@ const Container = styled.div`
   width: 100vw;
   padding: 2rem 1rem 3rem 1rem;
 
+  @media (min-width: ${({theme}) => theme.breakpoints.md}) {
+    width: calc(100vw - 11.75rem);
+  }
+
   @media (min-width: ${({theme}) => theme.breakpoints.lg}) {
     left: 13.625rem;
+    width: calc(100vw - 13.625rem);
   }
 `;
 

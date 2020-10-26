@@ -15,6 +15,7 @@ declare module 'styled-components' {
     textColor: string;
     active?: boolean;
     breakpoints: BreakPoints;
+    boxShadow: string;
   }
 }
 
@@ -26,6 +27,8 @@ const globalTheme = {
     lg: '62em',
     xl: '75em',
   },
+  boxShadow:
+    '0 0 .0625rem rgba(48, 49, 51, 0.05), 0 1rem 2rem rgba(48, 49, 51, 0.1)',
 };
 
 export const lightTheme: DefaultTheme = {
