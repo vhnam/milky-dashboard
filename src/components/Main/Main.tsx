@@ -10,8 +10,11 @@ const Container = styled.div`
   position: absolute;
   top: 0;
   left: 11.75rem;
-  width: 100vw;
   padding: 2rem 1rem 3rem 1rem;
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
 
   @media (min-width: ${({theme}) => theme.breakpoints.md}) {
     width: calc(100vw - 11.75rem);

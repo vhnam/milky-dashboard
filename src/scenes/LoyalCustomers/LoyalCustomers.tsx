@@ -3,6 +3,8 @@ import styled from 'styled-components';
 
 import {DashboardContext} from '../../contexts/DashboardContext';
 
+import {customerData} from '../../features/customers/seeds';
+
 import PageTitle from '../../components/PageTitle';
 
 import Jumbotron from './components/Jumbotron';
@@ -36,7 +38,7 @@ const LoyalCustomers = () => {
           <img src={imgBubbleTea} alt="Bubble Tea" style={{height: '150px'}} />
         }
       />
-      <CustomerList />
+      <CustomerList customers={customerData} />
     </Container>
   );
 };

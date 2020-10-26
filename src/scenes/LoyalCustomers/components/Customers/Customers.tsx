@@ -1,7 +1,13 @@
-import React from 'react';
+import React, {FC} from 'react';
 import styled from 'styled-components';
 
+import {ICustomer} from '../../../../features/customers/model';
+
 import Customer from '../Customer';
+
+interface CustomersProps {
+  data: ICustomer[];
+}
 
 const Table = styled.table`
   width: 100%;
@@ -47,7 +53,7 @@ const ColumnPoints = styled.th`
   }
 `;
 
-const Customers = () => {
+const Customers: FC<CustomersProps> = ({data}) => {
   return (
     <div>
       <Table>
@@ -59,7 +65,9 @@ const Customers = () => {
           </tr>
         </thead>
         <tbody>
-          <Customer />
+          {data.map((customer) => (
+            <Customer key={customer.id} data={customer} />
+          ))}
         </tbody>
       </Table>
     </div>

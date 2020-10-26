@@ -8,7 +8,8 @@ for (let i = 0; i < 1000; i++) {
   customers.push({
     id: uuidv4(),
     name: faker.name.findName(),
-    point: Math.floor(Math.random() * 5000 + 1000),
+    title: faker.name.jobTitle(),
+    points: Math.floor(Math.random() * 5000 + 1000),
     avatar: `${('000' + Math.floor(Math.random() * 40 + 1)).substr(-3)}.png`,
   });
 }

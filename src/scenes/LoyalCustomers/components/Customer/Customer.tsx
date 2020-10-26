@@ -1,7 +1,17 @@
-import React from 'react';
+import React, {FC, useCallback} from 'react';
 import styled from 'styled-components';
 
+import config from '../../../../config';
+
+import {ICustomer} from '../../../../features/customers/model';
+
+import {format} from '../../../../helpers/format';
+
 import Tag, {TagType} from '../../../../components/Tag';
+
+interface CustomerProps {
+  data: ICustomer;
+}
 
 const ColumnProfile = styled.td`
   padding: 1rem;
@@ -23,6 +33,32 @@ const ColumnPoints = styled.td`
   @media (min-width: ${({theme}) => theme.breakpoints.md}) {
     display: table-cell;
   }
+`;
+
+const ProfileWrapper = styled.div`
+  display: flex;
+  align-items: center;
+`;
+
+const Frame = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 1rem;
+  width: 4.5rem;
+  height: 4.5rem;
+  background-color: #fcfcfc;
+  border: 1px solid #e6e6e6;
+  border-radius: 0.25rem;
+
+  @media (min-width: ${({theme}) => theme.breakpoints.md}) {
+    margin-right: 1.5rem;
+  }
+`;
+
+const Avatar = styled.img`
+  width: 3rem;
+  height: 3rem;
 `;
 
 const Profile = styled.span`
@@ -55,20 +91,38 @@ const Point = styled.span`
   text-align: right;
 `;
 
-const Customer = () => {
+const Customer: FC<CustomerProps> = ({data}) => {
+  const getRank = useCallback((points) => {
+    return points > 3000
+      ? TagType.Gold
+      : points > 1500
+      ? TagType.Silver
+      : points > 500
+      ? TagType.Bronze
+      : TagType.Default;
+  }, []);
+
   return (
     <tr>
       <ColumnProfile>
-        <Profile>
-          <Name>Clair Humbert</Name>
-          <Title>Senior Factors Representative</Title>
-        </Profile>
+        <ProfileWrapper>
+          <Frame>
+            <Avatar
+              src={`${config.static.images}/${data.avatar}`}
+              alt={data.name}
+            />
+          </Frame>
+          <Profile>
+            <Name>{data.name}</Name>
+            <Title>{data.title}</Title>
+          </Profile>
+        </ProfileWrapper>
       </ColumnProfile>
       <ColumnRank>
-        <Tag variant={TagType.Silver} />
+        <Tag variant={getRank(data.points)} />
       </ColumnRank>
       <ColumnPoints>
-        <Point>1,733</Point>
+        <Point>{format(data.points)}</Point>
       </ColumnPoints>
     </tr>
   );

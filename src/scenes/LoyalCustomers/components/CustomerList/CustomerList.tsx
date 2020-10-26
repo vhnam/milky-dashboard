@@ -1,11 +1,17 @@
-import React from 'react';
+import React, {FC} from 'react';
 import styled from 'styled-components';
+
+import {ICustomer} from '../../../../features/customers/model';
 
 import Button from '../../../../components/Button';
 import {Plus} from '../../../../components/Icons';
 import SearchBox from '../../../../components/SearchBox';
 
 import Customers from '../Customers';
+
+interface CustomerListProps {
+  customers: ICustomer[];
+}
 
 const Container = styled.div`
   padding: 1.5rem 1rem;
@@ -47,14 +53,14 @@ const StyledSearchBox = styled(SearchBox)`
   }
 `;
 
-const CustomerList = () => {
+const CustomerList: FC<CustomerListProps> = ({customers}) => {
   return (
     <Container>
       <Navigation>
         <StyledSearchBox placeholder="Search for customers" />
         <StyledButton icon={<Plus />} />
       </Navigation>
-      <Customers />
+      <Customers data={customers} />
     </Container>
   );
 };

@@ -8,15 +8,14 @@ interface TagProps {
 }
 
 const Container = styled.span<{variant: TagType}>`
-  display: ${(props) =>
-    TagType.Default === props.variant ? 'none' : undefined};
+  display: ${(props) => (TagType.Default === props.variant ? 'none' : 'block')};
   padding: 0.5rem 1rem;
-  min-width: 5rem;
+  width: 5rem;
   font-size: 0.875rem;
   color: ${(props) =>
     TagType.Silver === props.variant
       ? props.theme.textColor
-      : props.theme.colorGrey};
+      : props.theme.colorWhite};
   line-height: calc(16 / 14);
   text-align: center;
   background-color: ${(props) =>
