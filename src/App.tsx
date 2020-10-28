@@ -7,7 +7,7 @@ import history from './helpers/history';
 import Dashboard from './layout/Dashboard';
 import routes from './routes';
 
-import Loading from './components/Loading';
+import LoadingPage from './scenes/Loading';
 
 import {GlobalStyles} from './styles/global';
 import {lightTheme} from './styles/theme';
@@ -15,7 +15,7 @@ import {lightTheme} from './styles/theme';
 const App = () => (
   <ThemeProvider theme={lightTheme}>
     <GlobalStyles />
-    <Suspense fallback={<Loading />}>
+    <Suspense fallback={<LoadingPage />}>
       <Router history={history}>
         <Switch>
           {routes.map((route) => (

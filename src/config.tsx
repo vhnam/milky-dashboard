@@ -6,7 +6,7 @@ const config = {
     revenue: '#',
   },
   api: {
-    customers: 'localhost:5000/customers',
+    customers: 'http://localhost:5000/customers',
   },
   static: {
     images: 'http://localhost:5000/static/images',

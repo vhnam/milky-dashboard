@@ -5,8 +5,6 @@ const Container = styled.div`
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 100vw;
-  height: 100vh;
 `;
 
 const Waviy = styled.div`
@@ -16,8 +14,8 @@ const Waviy = styled.div`
 const Item = styled.span<{index: number}>`
   position: relative;
   display: inline-block;
-  font-size: 2.5rem;
-  color: ${({theme}) => theme.textColor};
+  font-size: 4.5rem;
+  color: ${({theme}) => theme.primaryColor};
   text-transform: uppercase;
   animation: waviy 1s infinite;
   animation-delay: calc(0.1s * ${(props) => props.index});
@@ -37,7 +35,7 @@ const Item = styled.span<{index: number}>`
 const Loading = () => (
   <Container>
     <Waviy>
-      {'Loading'.split('').map((character, index) => (
+      {'...'.split('').map((character, index) => (
         <Item key={index} index={index + 1}>
           {character}
         </Item>

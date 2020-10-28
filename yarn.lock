@@ -1651,6 +1651,11 @@
   resolved "https://registry.yarnpkg.com/@types/q/-/q-1.5.4.tgz#15925414e0ad2cd765bfef58842f7e26a7accb24"
   integrity sha512-1HcDas8SEj4z1Wc696tH56G8OlRaH/sqZOynNNB+HF0WOeXPaxTtbYzJY2oEfiUxjSKjhCKr+MvR7dCHcEelug==
 
+"@types/qs@^6.9.5":
+  version "6.9.5"
+  resolved "https://registry.yarnpkg.com/@types/qs/-/qs-6.9.5.tgz#434711bdd49eb5ee69d90c1d67c354a9a8ecb18b"
+  integrity sha512-/JHkVHtx/REVG0VVToGRGH2+23hsYLHdyG+GrvoUGlGAd0ErauXDyvHtRI/7H7mzLm+tBCKA7pfcpkQ1lf58iQ==
+
 "@types/react-dom@^16.9.8":
   version "16.9.8"
   resolved "https://registry.yarnpkg.com/@types/react-dom/-/react-dom-16.9.8.tgz#fe4c1e11dfc67155733dfa6aa65108b4971cb423"
@@ -2018,6 +2023,14 @@
     "@webassemblyjs/ast" "1.9.0"
     "@webassemblyjs/wast-parser" "1.9.0"
     "@xtuc/long" "4.2.2"
+
+"@xstate/react@^1.0.1":
+  version "1.0.1"
+  resolved "https://registry.yarnpkg.com/@xstate/react/-/react-1.0.1.tgz#cb6d64c277b20c5357eb3fc4742feeb395759090"
+  integrity sha512-FMQiXSbe2sZQdA1XSyUxTXangmpYJsLvEUyGal2C7+VMZCGoJnlxdoExKw09MR9QWpHMwsbhc8kJUvswqwxf2w==
+  dependencies:
+    use-isomorphic-layout-effect "^1.0.0"
+    use-subscription "^1.3.0"
 
 "@xtuc/ieee754@^1.2.0":
   version "1.2.0"
@@ -2407,6 +2420,13 @@ axe-core@^3.5.4:
   version "3.5.5"
   resolved "https://registry.yarnpkg.com/axe-core/-/axe-core-3.5.5.tgz#84315073b53fa3c0c51676c588d59da09a192227"
   integrity sha512-5P0QZ6J5xGikH780pghEdbEKijCTrruK9KxtPZCFWUpef0f6GipO+xEZ5GKCb020mmqgbiNO6TcA55CriL784Q==
+
+axios@^0.21.0:
+  version "0.21.0"
+  resolved "https://registry.yarnpkg.com/axios/-/axios-0.21.0.tgz#26df088803a2350dff2c27f96fef99fe49442aca"
+  integrity sha512-fmkJBknJKoZwem3/IKSSLpkdNXZeBu5Q7GA/aRsr2btgrptmSCxi2oFjZHqGdK9DoTil9PIHlPIZw2EcRJXRvw==
+  dependencies:
+    follow-redirects "^1.10.0"
 
 axobject-query@^2.1.2:
   version "2.2.0"
@@ -5140,7 +5160,7 @@ flush-write-stream@^1.0.0:
     inherits "^2.0.3"
     readable-stream "^2.3.6"
 
-follow-redirects@^1.0.0:
+follow-redirects@^1.0.0, follow-redirects@^1.10.0:
   version "1.13.0"
   resolved "https://registry.yarnpkg.com/follow-redirects/-/follow-redirects-1.13.0.tgz#b42e8d93a2a7eea5ed88633676d6597bc8e384db"
   integrity sha512-aq6gF1BEKje4a9i9+5jimNFIpq4Q1WiwBToeRK5NvZBd/TRsmW8BsJfOEGkr76TbOyPVD3OVDN910EcUNtRYEA==
@@ -9343,6 +9363,11 @@ qs@6.7.0:
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.7.0.tgz#41dc1a015e3d581f1621776be31afb2876a9b1bc"
   integrity sha512-VCdBRNFTX1fyE7Nb6FYoURo/SPe62QCaAyzJvUjwRaIsc+NePBEniHlvxFmmX56+HZphIGtV0XeCirBtpDrTyQ==
 
+qs@^6.9.4:
+  version "6.9.4"
+  resolved "https://registry.yarnpkg.com/qs/-/qs-6.9.4.tgz#9090b290d1f91728d3c22e54843ca44aea5ab687"
+  integrity sha512-A1kFqHekCTM7cz0udomYUoYNWjBebHm/5wzU/XqrBRBNWectVH0QIiN+NEcZ0Dte5hvzHwbr8+XQmguPhJ6WdQ==
+
 qs@~6.5.2:
   version "6.5.2"
   resolved "https://registry.yarnpkg.com/qs/-/qs-6.5.2.tgz#cb3ae806e8740444584ef154ce8ee98d403f3e36"
@@ -11452,6 +11477,18 @@ url@^0.11.0:
     punycode "1.3.2"
     querystring "0.2.0"
 
+use-isomorphic-layout-effect@^1.0.0:
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/use-isomorphic-layout-effect/-/use-isomorphic-layout-effect-1.1.0.tgz#4db2111e0d53ca694187ea5fd5cb2ba610286fe0"
+  integrity sha512-kady5Z1O1qx5RitodCCKbpJSVEtECXYcnBnb5Q48Bz5V6gBmTu85ZcGdVwVFs8+DaOurNb/L5VdGHoQRMknghw==
+
+use-subscription@^1.3.0:
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/use-subscription/-/use-subscription-1.5.0.tgz#0df66fdf97b9a340147ad72f76fac1db6f56d240"
+  integrity sha512-/FVRiB2I7NDjzWoNBYPt6YkkvleMm/lFtxj1hH6nX2TVrJ/5UTbovw9OE1efv2Zl0HoAYuTjM7zHd9OsABn5sg==
+  dependencies:
+    object-assign "^4.1.1"
+
 use@^3.1.0:
   version "3.1.1"
   resolved "https://registry.yarnpkg.com/use/-/use-3.1.1.tgz#d50c8cac79a19fbc20f2911f56eb973f4e10070f"
@@ -12047,6 +12084,11 @@ xmlchars@^2.2.0:
   version "2.2.0"
   resolved "https://registry.yarnpkg.com/xmlchars/-/xmlchars-2.2.0.tgz#060fe1bcb7f9c76fe2a17db86a9bc3ab894210cb"
   integrity sha512-JZnDKK8B0RCDw84FNdDAIpZK+JuJw+s7Lz8nksI7SIuU3UXJJslUthsi+uWBUYOwPFwW7W7PRLRfUKpxjtjFCw==
+
+xstate@^4.13.0:
+  version "4.13.0"
+  resolved "https://registry.yarnpkg.com/xstate/-/xstate-4.13.0.tgz#0be22ceb8bae2bc6a025fab330fe44204d76771c"
+  integrity sha512-UnUJJzP2KTPqnmxIoD/ymXtpy/hehZnUlO6EXqWC/72XkPb15p9Oz/X4WhS3QE+by7NP+6b5bCi/GTGFzm5D+A==
 
 xtend@^4.0.0, xtend@~4.0.1:
   version "4.0.2"

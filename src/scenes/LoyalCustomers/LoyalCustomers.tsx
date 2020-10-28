@@ -1,26 +1,40 @@
-import React, {useContext} from 'react';
+import React, {useContext, useEffect} from 'react';
 import styled from 'styled-components';
+import {useMachine} from '@xstate/react';
 
 import {DashboardContext} from '../../contexts/DashboardContext';
 
-import {customerData} from '../../features/customers/seeds';
+import {customersMachine} from '../../features/customers/machines';
 
 import PageTitle from '../../components/PageTitle';
 
 import Jumbotron from './components/Jumbotron';
-import CustomerList from './components/CustomerList';
+import Customers from './components/Customers';
 
 import imgBubbleTea from '../../assets/images/bubble-tea.png';
 
 const Container = styled.div`
   @media (min-width: ${({theme}) => theme.breakpoints.xl}) {
-    width: 75rem;
+    max-width: 75rem;
     margin: 0 auto;
   }
 `;
 
 const LoyalCustomers = () => {
   const dashboardContext = useContext(DashboardContext);
+
+  const [state, send] = useMachine(customersMachine, {devTools: true});
+
+  useEffect(() => {
+    send({
+      type: 'GET_CUSTOMERS',
+      payload: {
+        page: 1,
+        limit: 20,
+      },
+    });
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   return (
     <Container>
@@ -38,7 +52,10 @@ const LoyalCustomers = () => {
           <img src={imgBubbleTea} alt="Bubble Tea" style={{height: '150px'}} />
         }
       />
-      <CustomerList customers={customerData} />
+      <Customers
+        customers={state.context.data}
+        state={state.value.toString()}
+      />
     </Container>
   );
 };

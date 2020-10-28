@@ -3,14 +3,14 @@ import styled from 'styled-components';
 
 import config from '../../../../config';
 
-import {ICustomer} from '../../../../features/customers/model';
+import {Customer} from '../../../../features/customers/models';
 
 import {format} from '../../../../helpers/format';
 
 import Tag, {TagType} from '../../../../components/Tag';
 
-interface CustomerProps {
-  data: ICustomer;
+interface CustomerItemProps {
+  data: Customer;
 }
 
 const ColumnProfile = styled.td`
@@ -91,7 +91,7 @@ const Point = styled.span`
   text-align: right;
 `;
 
-const Customer: FC<CustomerProps> = ({data}) => {
+const CustomerItem: FC<CustomerItemProps> = ({data}) => {
   const getRank = useCallback((points) => {
     return points > 3000
       ? TagType.Gold
@@ -128,4 +128,4 @@ const Customer: FC<CustomerProps> = ({data}) => {
   );
 };
 
-export default Customer;
+export default CustomerItem;

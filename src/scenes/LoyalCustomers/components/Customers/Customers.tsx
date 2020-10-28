@@ -1,76 +1,72 @@
 import React, {FC} from 'react';
 import styled from 'styled-components';
 
-import {ICustomer} from '../../../../features/customers/model';
+import {Customer} from '../../../../features/customers/models';
 
-import Customer from '../Customer';
+import Button from '../../../../components/Button';
+import {Plus} from '../../../../components/Icons';
+import SearchBox from '../../../../components/SearchBox';
+
+import CustomerList from '../CustomerList';
+import Loading from '../../../../components/Loading';
 
 interface CustomersProps {
-  data: ICustomer[];
+  customers: Customer[];
+  state: string;
 }
 
-const Table = styled.table`
-  width: 100%;
-`;
-
-const ColumnProfile = styled.th`
-  padding: 2rem 1rem;
-  font-family: Inter, sans-serif;
-  font-size: 0.75rem;
-  color: ${({theme}) => theme.colorGrey};
-  line-height: calc(16 / 12);
-  text-align: left;
-  border-bottom: 0.0625rem solid #e6e6e6;
-`;
-
-const ColumnRank = styled.th`
-  display: none;
-  padding: 2rem 1rem;
-  font-family: Inter, sans-serif;
-  font-size: 0.75rem;
-  color: ${({theme}) => theme.colorGrey};
-  line-height: calc(16 / 12);
-  text-align: left;
-  border-bottom: 0.0625rem solid #e6e6e6;
+const Container = styled.div`
+  padding: 1.5rem 1rem;
+  background: ${({theme}) => theme.colorWhite};
+  box-shadow: ${({theme}) => theme.boxShadow};
+  border-radius: 0.25rem;
 
   @media (min-width: ${({theme}) => theme.breakpoints.md}) {
-    display: table-cell;
+    padding: 1.5rem;
+  }
+
+  @media (min-width: ${({theme}) => theme.breakpoints.xl}) {
+    padding: 2rem;
   }
 `;
 
-const ColumnPoints = styled.th`
-  display: none;
-  padding: 2rem 1rem;
-  font-family: Inter, sans-serif;
-  font-size: 0.75rem;
-  color: ${({theme}) => theme.colorGrey};
-  line-height: calc(16 / 12);
-  text-align: right;
-  border-bottom: 0.0625rem solid #e6e6e6;
+const Navigation = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`;
 
-  @media (min-width: ${({theme}) => theme.breakpoints.md}) {
-    display: table-cell;
+const StyledButton = styled(Button)`
+  && {
+    padding: 0.625rem;
+    width: 3rem;
+    height: 3rem;
   }
 `;
 
-const Customers: FC<CustomersProps> = ({data}) => {
+const StyledSearchBox = styled(SearchBox)`
+  && {
+    width: 100%;
+    margin-right: 1rem;
+
+    @media (min-width: ${({theme}) => theme.breakpoints.xl}) {
+      margin-right: 2rem;
+    }
+  }
+`;
+
+const Customers: FC<CustomersProps> = ({customers, state}) => {
   return (
-    <div>
-      <Table>
-        <thead>
-          <tr>
-            <ColumnProfile>Customer</ColumnProfile>
-            <ColumnRank>Rank</ColumnRank>
-            <ColumnPoints>Point</ColumnPoints>
-          </tr>
-        </thead>
-        <tbody>
-          {data.map((customer) => (
-            <Customer key={customer.id} data={customer} />
-          ))}
-        </tbody>
-      </Table>
-    </div>
+    <Container>
+      <Navigation>
+        <StyledSearchBox placeholder="Search for customers" />
+        <StyledButton icon={<Plus />} />
+      </Navigation>
+
+      {'loading' === state && <Loading />}
+
+      {'success' === state && <CustomerList data={customers} />}
+    </Container>
   );
 };
 
