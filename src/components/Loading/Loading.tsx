@@ -14,7 +14,7 @@ const Waviy = styled.div`
 const Item = styled.span<{index: number}>`
   position: relative;
   display: inline-block;
-  font-size: 4.5rem;
+  font-size: 2.5rem;
   color: ${({theme}) => theme.primaryColor};
   text-transform: uppercase;
   animation: waviy 1s infinite;
